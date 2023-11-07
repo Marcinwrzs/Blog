@@ -1,11 +1,13 @@
-import logo from "./logo.svg";
+import Header from "components/header/Header";
 import "./App.css";
+import Pages from "components/pages/Pages";
 
 const App: React.FC = () => {
   return (
-    <div>
-      <h1>Blog</h1>
-    </div>
+    <>
+      <Header />
+      <Pages />
+    </>
   );
 };
 
