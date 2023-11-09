@@ -4,10 +4,12 @@ import * as Styled from "./Header.styled";
 
 const Header: React.FC = () => {
   return (
-    <Styled.Header>
-      <Logo />
-      <Navigation />
-    </Styled.Header>
+    <Styled.Wrapper>
+      <Styled.Header>
+        <Logo />
+        <Navigation />
+      </Styled.Header>
+    </Styled.Wrapper>
   );
 };
 

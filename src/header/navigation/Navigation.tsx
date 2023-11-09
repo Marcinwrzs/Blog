@@ -5,7 +5,9 @@ import SignUp from "header/singUp/SignUp";
 const Navigation: React.FC = () => {
   return (
     <Styled.NavigationWrapper>
-      <p>Navigation</p>
+      <div>Category 1</div>
+      <div>Category 2</div>
+      <div>Category 3</div>
       <SignIn />
       <SignUp />
     </Styled.NavigationWrapper>
