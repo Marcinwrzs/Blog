@@ -11,3 +11,9 @@ export const NavigationWrapper = styled.div`
     cursor: pointer;
   }
 `;
+
+export const Category = styled.div`
+  @media (max-width: 750px) {
+    display: none;
+  }
+`;

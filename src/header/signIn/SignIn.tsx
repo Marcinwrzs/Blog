@@ -1,5 +1,7 @@
+import * as Styled from "./SignIn.styled";
+
 const SignIn: React.FC = () => {
-  return <div>Sign in</div>;
+  return <Styled.SingIn>Sign in</Styled.SingIn>;
 };
 
 export default SignIn;

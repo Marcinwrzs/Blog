@@ -15,4 +15,8 @@ export const Header = styled.div`
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 20px;
+
+  @media (max-width: 450px) {
+    width: 90%;
+  }
 `;
