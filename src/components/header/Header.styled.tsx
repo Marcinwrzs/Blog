@@ -4,6 +4,10 @@ export const Wrapper = styled.div`
   background-color: rgb(255, 192, 23);
   width: 100%;
   height: 70px;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
 `;
 
 export const Header = styled.div`

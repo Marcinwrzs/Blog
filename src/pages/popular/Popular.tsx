@@ -1,7 +1,11 @@
 import * as Styled from "./Popular.styled";
 
 const Popular: React.FC = () => {
-  return <h1>Popular</h1>;
+  return (
+    <Styled.Wrapper>
+      <h2>Most popular posts</h2>
+    </Styled.Wrapper>
+  );
 };
 
 export default Popular;
