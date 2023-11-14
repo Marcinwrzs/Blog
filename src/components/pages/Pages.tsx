@@ -3,7 +3,7 @@ import Category from "pages/category/Category";
 import HomePage from "pages/HomePage/HomePage";
 import SignUp from "pages/singUp/SignUp";
 import { Route, Routes } from "react-router-dom";
-import * as Styled from "./Pages.Styled";
+import * as Styled from "./Pages.styled";
 
 export enum Paths {
   Home = "/",
