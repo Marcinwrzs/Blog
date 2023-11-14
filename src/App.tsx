@@ -1,13 +1,17 @@
 import Header from "components/header/Header";
-import Pages from "components/pages/Pages";
+import HomePage from "pages/HomePage/HomePage";
 import * as Styled from "./App.Styled";
+import { BrowserRouter } from "react-router-dom";
+import Pages from "components/pages/Pages";
 
 const App: React.FC = () => {
   return (
-    <Styled.AppWrapper>
-      <Header />
-      <Pages />
-    </Styled.AppWrapper>
+    <BrowserRouter>
+      <Styled.AppWrapper>
+        <Header />
+        <Pages />
+      </Styled.AppWrapper>
+    </BrowserRouter>
   );
 };
 

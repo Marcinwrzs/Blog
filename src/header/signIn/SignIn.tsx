@@ -1,7 +1,12 @@
+import { Paths } from "components/pages/Pages";
 import * as Styled from "./SignIn.styled";
 
 const SignIn: React.FC = () => {
-  return <Styled.SingIn>Sign in</Styled.SingIn>;
+  return (
+    <Styled.Link to={Paths.SignIn}>
+      <div>Sign In</div>
+    </Styled.Link>
+  );
 };
 
 export default SignIn;
