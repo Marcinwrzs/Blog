@@ -24,6 +24,13 @@ const Latest: React.FC = () => {
       author: "John",
       category: "General",
     },
+    {
+      id: 3,
+      title: "Lorem 4",
+      date: new Date(),
+      author: "John",
+      category: "General",
+    },
   ];
 
   return (
