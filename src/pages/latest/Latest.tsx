@@ -5,43 +5,12 @@ import { getLatetsPosts } from "api/handlers/services";
 import { ArticleType } from "api/handlers/types";
 
 const Latest: React.FC = () => {
-  const posts = [
-    {
-      id: 0,
-      title: "Lorem 1",
-      date: new Date(),
-      author: "John",
-      category: "General",
-    },
-    {
-      id: 1,
-      title: "Lorem 2",
-      date: new Date(),
-      author: "John",
-      category: "General",
-    },
-    {
-      id: 2,
-      title: "Lorem 3",
-      date: new Date(),
-      author: "John",
-      category: "General",
-    },
-    {
-      id: 3,
-      title: "Lorem 4",
-      date: new Date(),
-      author: "John",
-      category: "General",
-    },
-  ];
-
   const [latestPosts, setLatestPosts] = useState<any>();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await getLatetsPosts(); // This is an array of ArticleType[]
+        const response = await getLatetsPosts();
         console.log(response);
         setLatestPosts(response);
       } catch (error) {
@@ -56,18 +25,16 @@ const Latest: React.FC = () => {
     <Styled.Wrapper>
       <h1>Latest post</h1>
       {latestPosts
-        ? latestPosts.map(
-            ({ id, date, Header, category, author }: ArticleType) => (
-              <Article
-                key={id}
-                id={id}
-                date={date}
-                Header={Header}
-                category={category}
-                author={author}
-              />
-            )
-          )
+        ? latestPosts.map((item: any) => (
+            <Article
+              key={item.id}
+              header={item.attributes.Header}
+              text={item.attributes.Text}
+              author={item.attributes.Author}
+              category={item.attributes.Category}
+              creationDate={item.attributes.createdAt}
+            ></Article>
+          ))
         : "Please wait"}
     </Styled.Wrapper>
   );
