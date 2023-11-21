@@ -2,7 +2,7 @@ import Article from "pages/Article/Article";
 import * as Styled from "./Latest.styled";
 import { useEffect, useState } from "react";
 import { getLatetsPosts } from "api/handlers/services";
-import { ArticleType } from "api/handlers/types";
+import { LatestPostsType } from "api/handlers/types";
 
 const Latest: React.FC = () => {
   const [latestPosts, setLatestPosts] = useState<any>();
@@ -25,7 +25,7 @@ const Latest: React.FC = () => {
     <Styled.Wrapper>
       <h1>Latest post</h1>
       {latestPosts
-        ? latestPosts.map((item: any) => (
+        ? latestPosts.map((item: LatestPostsType) => (
             <Article
               key={item.id}
               header={item.attributes.Header}
