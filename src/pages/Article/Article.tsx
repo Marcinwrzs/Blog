@@ -1,23 +1,28 @@
 import * as Styled from "./Article.Styled";
+import { ArticleType } from "api/handlers/types";
 
-interface ArticleProps {
-  id: number;
-  date: Date;
-  title: string;
-  category: string;
-  author: string;
-}
+const Article = ({
+  header,
+  text,
+  author,
+  category,
+  creationDate,
+}: ArticleType) => {
+  const date = new Date(creationDate);
 
-const Article = (props: ArticleProps) => {
-  const { id, date, title, category, author } = props;
+  const fullDate =
+    date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
 
   return (
-    <Styled.Article key={id}>
+    <Styled.Article>
       <p>{category}</p>
-      <h1>{title}</h1>
+      <h1>{header}</h1>
       <p>
-        Posted on {date.getDate()}.{date.getMonth() + 1} by{" "}
-        <span>{author}</span>
+        Posted on {fullDate} by <span>{author}</span>
+      </p>
+      <p>
+        {text.slice(0, 250)}
+        {"..."}
       </p>
       <Styled.Button>View article</Styled.Button>
     </Styled.Article>
