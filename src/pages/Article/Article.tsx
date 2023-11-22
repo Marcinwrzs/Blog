@@ -8,12 +8,17 @@ const Article = ({
   category,
   creationDate,
 }: ArticleType) => {
+  const date = new Date(creationDate);
+
+  const fullDate =
+    date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
+
   return (
     <Styled.Article>
       <p>{category}</p>
       <h1>{header}</h1>
       <p>
-        Posted on {creationDate.slice(0, 10)} by <span>{author}</span>
+        Posted on {fullDate} by <span>{author}</span>
       </p>
       <p>
         {text.slice(0, 250)}
