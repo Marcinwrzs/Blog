@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { emailRegex } from "common/emailRegex";
 
 type SignInTypes = {
   name: string;
@@ -17,8 +18,6 @@ const SignIn: React.FC = () => {
   const onSubmit = () => {
     console.log("submitted");
   };
-
-  const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
   return (
     <div>
