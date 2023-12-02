@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
-export const Button = styled.div`
+export const Link = styled(NavLink)`
   background-color: black;
   color: white;
   padding: 8px 8px;

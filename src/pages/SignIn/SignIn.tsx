@@ -1,6 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { emailRegex } from "common/emailRegex";
+import * as Styled from "./SignIn.styled";
+import { Paths } from "components/pages/Pages";
 
 type SignInTypes = {
   name: string;
@@ -20,23 +22,27 @@ const SignIn: React.FC = () => {
   };
 
   return (
-    <div>
-      <h1>SignIn</h1>
+    <Styled.Wrapper>
+      <h1>Welcome back</h1>
 
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
-        <label>
-          Name:
-          <input
+        <Styled.Input>
+          Name
+          <Styled.TextInput
             type="text"
             {...register("name", {
               required: "Name is required",
+              minLength: {
+                value: 6,
+                message: "Name must be at least 3 characters",
+              },
             })}
           />
           <p>{errors.name?.message}</p>
-        </label>
-        <label>
-          Email:
-          <input
+        </Styled.Input>
+        <Styled.Input>
+          Email
+          <Styled.TextInput
             type="email"
             {...register("email", {
               required: "This field cannot be empty",
@@ -47,10 +53,10 @@ const SignIn: React.FC = () => {
             })}
           />
           <p>{errors.email?.message}</p>
-        </label>
-        <label>
-          Password:
-          <input
+        </Styled.Input>
+        <Styled.Input>
+          Password
+          <Styled.TextInput
             type="password"
             {...register("password", {
               required: "Password is required",
@@ -61,10 +67,15 @@ const SignIn: React.FC = () => {
             })}
           />
           <p>{errors.password?.message}</p>
-        </label>
-        <button type="submit">Login</button>
+        </Styled.Input>
+        <Styled.Button type="submit">Login</Styled.Button>
       </form>
-    </div>
+
+      <div>
+        <span>Don't have an account?</span>
+        <Styled.Link to={Paths.SignUp}>Sign up</Styled.Link>
+      </div>
+    </Styled.Wrapper>
   );
 };
 

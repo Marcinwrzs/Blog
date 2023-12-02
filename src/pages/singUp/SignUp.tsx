@@ -49,8 +49,10 @@ const SignUp: React.FC = () => {
         <button type="submit">Submit</button>
       </form>
 
-      <p>Already have an account?</p>
-      <NavLink to={Paths.SignIn}>Sign In</NavLink>
+      <div>
+        <p>Already have an account?</p>
+        <NavLink to={Paths.SignIn}>Sign In</NavLink>
+      </div>
     </div>
   );
 };
