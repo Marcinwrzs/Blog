@@ -11,7 +11,6 @@ const Latest: React.FC = () => {
     const fetchData = async () => {
       try {
         const response = await getLatetsPosts();
-        console.log(response);
         setLatestPosts(response);
       } catch (error) {
         console.error("Error fetching data:", error);

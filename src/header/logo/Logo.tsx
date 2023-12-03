@@ -4,7 +4,7 @@ import * as Styled from "./Logo.styled";
 const Logo: React.FC = () => {
   return (
     <Styled.Link to={Paths.Home}>
-      <h1>Logo</h1>
+      <img src={require("img/Logo.png")} alt="logo" />
     </Styled.Link>
   );
 };
