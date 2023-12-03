@@ -1,32 +1,41 @@
-import { NavLink } from "react-router-dom";
-import * as Styled from "./SignUp.Styled";
 import { Paths } from "components/pages/Pages";
 import { useForm } from "react-hook-form";
+import * as Styled from "./SignUp.Styled";
+
+type SignUpTypes = {
+  fullName: string;
+  email: string;
+  password: string;
+};
 
 const SignUp: React.FC = () => {
-  const { register, handleSubmit, setValue } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<SignUpTypes>();
 
   const onSubmit = (data: any) => {
     console.log("Submitted data:", data);
   };
 
   return (
-    <div>
-      <h1>Get started</h1>
+    <Styled.Wrapper>
+      <h1>Create your account</h1>
 
-      <h1>Sign Up</h1>
       <form noValidate onSubmit={handleSubmit(onSubmit)}>
-        <label>
-          Full Name:
-          <input
+        <Styled.Input>
+          <span>Name</span>
+          <Styled.TextInput
             type="text"
             {...register("fullName", { required: "Full name is required" })}
           />
-        </label>
-        <br />
-        <label>
+          <p>{errors.fullName?.message}</p>
+        </Styled.Input>
+
+        <Styled.Input>
           Email:
-          <input
+          <Styled.TextInput
             type="email"
             {...register("email", {
               required: "Email is required",
@@ -36,24 +45,26 @@ const SignUp: React.FC = () => {
               },
             })}
           />
-        </label>
-        <br />
-        <label>
+          <p>{errors.email?.message}</p>
+        </Styled.Input>
+
+        <Styled.Input>
           Password:
-          <input
+          <Styled.TextInput
             type="password"
             {...register("password", { required: "Password is required" })}
           />
-        </label>
-        <br />
-        <button type="submit">Submit</button>
+          <p>{errors.password?.message}</p>
+        </Styled.Input>
+
+        <Styled.Button type="submit">Submit</Styled.Button>
       </form>
 
       <div>
-        <p>Already have an account?</p>
-        <NavLink to={Paths.SignIn}>Sign In</NavLink>
+        <span>Already have an account?</span>
+        <Styled.Link to={Paths.SignIn}>Sign In</Styled.Link>
       </div>
-    </div>
+    </Styled.Wrapper>
   );
 };
 

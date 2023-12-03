@@ -5,7 +5,6 @@ import * as Styled from "./SignIn.styled";
 import { Paths } from "components/pages/Pages";
 
 type SignInTypes = {
-  name: string;
   email: string;
   password: string;
 };
@@ -26,20 +25,6 @@ const SignIn: React.FC = () => {
       <h1>Welcome back</h1>
 
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
-        <Styled.Input>
-          Name
-          <Styled.TextInput
-            type="text"
-            {...register("name", {
-              required: "Name is required",
-              minLength: {
-                value: 6,
-                message: "Name must be at least 3 characters",
-              },
-            })}
-          />
-          <p>{errors.name?.message}</p>
-        </Styled.Input>
         <Styled.Input>
           Email
           <Styled.TextInput
