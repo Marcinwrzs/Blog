@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const AppWrapper = styled.div`
+  height: calc(100% - 80px);
+
   h1 {
     font-size: 28px;
   }

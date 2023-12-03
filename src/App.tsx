@@ -1,5 +1,4 @@
 import Header from "components/header/Header";
-import HomePage from "pages/HomePage/HomePage";
 import * as Styled from "./App.Styled";
 import { BrowserRouter } from "react-router-dom";
 import Pages from "components/pages/Pages";
