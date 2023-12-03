@@ -14,6 +14,7 @@ export const Aside = styled.aside`
 
 export const Wrapper = styled.div`
   display: flex;
+  height: calc(100% - 80px);
 
   @media (max-width: 900px) {
     flex-direction: column;

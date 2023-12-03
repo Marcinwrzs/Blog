@@ -1,7 +1,7 @@
 import SignIn from "pages/SignIn/SignIn";
-import Category from "pages/category/Category";
+import Category from "pages/Category/Category";
 import HomePage from "pages/HomePage/HomePage";
-import SignUp from "pages/singUp/SignUp";
+import SignUp from "pages/SingUp/SignUp";
 import { Route, Routes } from "react-router-dom";
 import * as Styled from "./Pages.styled";
 import ErrorPage from "pages/ErrorPage/ErrorPage";
