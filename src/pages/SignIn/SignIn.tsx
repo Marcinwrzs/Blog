@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { emailRegex } from "common/emailRegex";
 import * as Styled from "./SignIn.styled";
 import { Paths } from "components/pages/Pages";
+import axios from "axios";
 
 type SignInTypes = {
   email: string;
@@ -16,8 +17,17 @@ const SignIn: React.FC = () => {
     formState: { errors },
   } = useForm<SignInTypes>();
 
-  const onSubmit = () => {
-    console.log("submitted");
+  const onSubmit = async (data: any) => {
+    const url = "http://localhost:1337/api/auth/local";
+    try {
+      const res = await axios.post(url, {
+        identifier: data.email,
+        password: data.password,
+      });
+      console.log({ res });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
