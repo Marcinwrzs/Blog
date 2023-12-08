@@ -1,6 +1,7 @@
 import { Paths } from "components/pages/Pages";
 import { useForm } from "react-hook-form";
 import * as Styled from "./SignUp.Styled";
+import axios from "axios";
 
 type SignUpTypes = {
   fullName: string;
@@ -15,8 +16,19 @@ const SignUp: React.FC = () => {
     formState: { errors },
   } = useForm<SignUpTypes>();
 
-  const onSubmit = (data: any) => {
-    console.log("Submitted data:", data);
+  const onSubmit = async (data: any) => {
+    console.log(data);
+    const url = "http://localhost:1337/api/auth/local/register";
+    try {
+      const res = await axios.post(url, {
+        username: data.fullName,
+        email: data.email,
+        password: data.password,
+      });
+      console.log({ res });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
