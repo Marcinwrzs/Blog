@@ -1,7 +1,9 @@
 import { Paths } from "components/pages/Pages";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import * as Styled from "./SignUp.Styled";
 import axios from "axios";
+import { useState } from "react";
 
 type SignUpTypes = {
   fullName: string;
@@ -16,8 +18,11 @@ const SignUp: React.FC = () => {
     formState: { errors },
   } = useForm<SignUpTypes>();
 
+  const [isError, setIsError] = useState<boolean>(false);
+
+  const navigate = useNavigate();
+
   const onSubmit = async (data: any) => {
-    console.log(data);
     const url = "http://localhost:1337/api/auth/local/register";
     try {
       const res = await axios.post(url, {
@@ -25,9 +30,12 @@ const SignUp: React.FC = () => {
         email: data.email,
         password: data.password,
       });
-      console.log({ res });
+      if (res) {
+        navigate(Paths.SignIn);
+      }
     } catch (error) {
-      console.log(error);
+      setIsError(true);
+      new Error();
     }
   };
 
@@ -71,6 +79,8 @@ const SignUp: React.FC = () => {
 
         <Styled.Button type="submit">Submit</Styled.Button>
       </form>
+
+      {isError && <h4>Something went wrong. Please try again</h4>}
 
       <div>
         <span>Already have an account?</span>

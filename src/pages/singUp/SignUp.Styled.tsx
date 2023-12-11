@@ -11,6 +11,10 @@ export const Wrapper = styled.div`
   h1 {
     margin-bottom: 10px;
   }
+  h4 {
+    color: #d81616;
+    margin-bottom: 10px;
+  }
 `;
 
 export const Input = styled.label`

@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { emailRegex } from "common/emailRegex";
 import * as Styled from "./SignIn.styled";
 import { Paths } from "components/pages/Pages";
 import axios from "axios";
+import { storeUser } from "api/handlers/userData";
+import { useNavigate } from "react-router";
 
 type SignInTypes = {
   email: string;
@@ -17,6 +19,10 @@ const SignIn: React.FC = () => {
     formState: { errors },
   } = useForm<SignInTypes>();
 
+  const [isError, setIsError] = useState<boolean>(false);
+
+  const navigate = useNavigate();
+
   const onSubmit = async (data: any) => {
     const url = "http://localhost:1337/api/auth/local";
     try {
@@ -24,9 +30,13 @@ const SignIn: React.FC = () => {
         identifier: data.email,
         password: data.password,
       });
-      console.log({ res });
+      if (res.data.jwt) {
+        storeUser(res.data);
+        navigate(Paths.Home);
+      }
     } catch (error) {
-      console.log(error);
+      setIsError(true);
+      new Error();
     }
   };
 
@@ -65,7 +75,7 @@ const SignIn: React.FC = () => {
         </Styled.Input>
         <Styled.Button type="submit">Login</Styled.Button>
       </form>
-
+      {isError && <h4>Something went wrong. Please try again</h4>}
       <div>
         <span>Don't have an account?</span>
         <Styled.Link to={Paths.SignUp}>Sign up</Styled.Link>

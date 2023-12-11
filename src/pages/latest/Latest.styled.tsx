@@ -6,7 +6,9 @@ export const Wrapper = styled.div`
   @media (max-width: 900px) {
     width: 100%;
   }
+`;
 
+export const Title = styled.div`
   h1:first-child:after {
     background-color: black;
     height: 2px;
