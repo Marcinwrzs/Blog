@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { emailRegex } from "common/emailRegex";
 import * as Styled from "./SignIn.styled";
-import { Paths } from "components/pages/Pages";
+import { Paths } from "layout/routes/Routing";
 import { storeUser } from "api/handlers/userData";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import { userIdentifier, useTokenContext } from "context/UserContext";
 
-type SignInTypes = {
+type SignInPayload = {
   email: string;
   password: string;
 };
@@ -20,7 +20,7 @@ const SignIn = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<SignInTypes>();
+  } = useForm<SignInPayload>();
 
   const [isError, setIsError] = useState<boolean>(false);
 

@@ -1,7 +1,7 @@
 import * as Styled from "./Navigation.styled";
 import SignIn from "header/signIn/SignIn";
 import SignUp from "header/singUp/SignUp";
-import { Paths } from "components/pages/Pages";
+import { Paths } from "layout/routes/Routing";
 import Logout from "header/logout/Logout";
 import { useTokenContext } from "context/UserContext";
 

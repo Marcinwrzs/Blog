@@ -1,4 +1,4 @@
-import { Paths } from "components/pages/Pages";
+import { Paths } from "layout/routes/Routing";
 import { userIdentifier, useTokenContext } from "context/UserContext";
 import { useNavigate } from "react-router";
 import * as Styled from "./Logout.styled";

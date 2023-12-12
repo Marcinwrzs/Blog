@@ -1,4 +1,4 @@
-import { Paths } from "components/pages/Pages";
+import { Paths } from "layout/routes/Routing";
 import * as Styled from "./SignUp.styled";
 
 const SignUp = () => {

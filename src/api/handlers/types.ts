@@ -6,7 +6,7 @@ export interface ArticleType {
   creationDate: string;
 }
 
-export interface LatestPostsType {
+export interface LatestPosts {
   id: number;
   attributes: {
     Header: string;

@@ -1,10 +1,10 @@
-import SignIn from "pages/SignIn/SignIn";
-import Category from "pages/Category/Category";
-import HomePage from "pages/HomePage/HomePage";
-import SignUp from "pages/SingUp/SignUp";
+import SignIn from "components/SignIn/SignIn";
+import Category from "components/Category/Category";
+import HomePage from "components/HomePage/HomePage";
+import SignUp from "components/SingUp/SignUp";
 import { Route, Routes } from "react-router-dom";
 import * as Styled from "./Pages.styled";
-import ErrorPage from "pages/ErrorPage/ErrorPage";
+import ErrorPage from "components/ErrorPage/ErrorPage";
 
 export enum Paths {
   Home = "/",
@@ -14,7 +14,7 @@ export enum Paths {
   ErrorPage = "*",
 }
 
-const Pages = () => {
+const Routing = () => {
   return (
     <Styled.Wrapper>
       <Routes>
@@ -28,4 +28,4 @@ const Pages = () => {
   );
 };
 
-export default Pages;
+export default Routing;

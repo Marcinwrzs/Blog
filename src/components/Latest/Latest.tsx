@@ -1,14 +1,14 @@
-import Article from "pages/Article/Article";
+import Article from "components/Article/Article";
 import * as Styled from "./Latest.styled";
 import { useEffect, useState } from "react";
 import { getLatetsPosts } from "api/handlers/services";
-import { LatestPostsType } from "api/handlers/types";
+import { LatestPosts } from "api/handlers/types";
 import { dotPulse } from "ldrs";
-import UserPanel from "pages/userPanel/UserPanel";
+import UserPanel from "components/userPanel/UserPanel";
 import { userIdentifier } from "context/UserContext";
 
 const Latest = () => {
-  const [latestPosts, setLatestPosts] = useState<any>();
+  const [latestPosts, setLatestPosts] = useState<LatestPosts[]>();
 
   dotPulse.register();
 
@@ -16,7 +16,7 @@ const Latest = () => {
     const fetchData = async () => {
       try {
         const response = await getLatetsPosts();
-        setLatestPosts(response);
+        setLatestPosts(response as unknown as LatestPosts[]);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -34,7 +34,7 @@ const Latest = () => {
       </Styled.Title>
 
       {latestPosts ? (
-        latestPosts.map((item: LatestPostsType) => (
+        latestPosts.map((item: LatestPosts) => (
           <Article
             key={item.id}
             header={item.attributes.Header}

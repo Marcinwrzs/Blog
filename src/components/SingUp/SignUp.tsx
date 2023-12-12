@@ -1,11 +1,11 @@
-import { Paths } from "components/pages/Pages";
+import { Paths } from "layout/routes/Routing";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import * as Styled from "./SignUp.Styled";
 import axios from "axios";
 import { useState } from "react";
 
-type SignUpTypes = {
+type SignUpPayload = {
   fullName: string;
   email: string;
   password: string;
@@ -16,7 +16,7 @@ const SignUp = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<SignUpTypes>();
+  } = useForm<SignUpPayload>();
 
   const [isError, setIsError] = useState<boolean>(false);
 

@@ -1,7 +1,7 @@
 import * as Styled from "./HomePage.Styled";
-import Latest from "pages/Latest/Latest";
-import Popular from "pages/Popular/Popular";
-import Commented from "pages/Commented/Commented";
+import Latest from "components/Latest/Latest";
+import Popular from "components/Popular/Popular";
+import Commented from "components/Commented/Commented";
 
 const HomePage = () => {
   return (
