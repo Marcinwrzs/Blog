@@ -1,6 +1,8 @@
+import { userIdentifier } from "context/UserContext";
+
 export const storeUser = (data: any) => {
   localStorage.setItem(
-    "user",
+    userIdentifier,
     JSON.stringify({
       username: data.user.username,
       jwt: data.jwt,
@@ -9,6 +11,7 @@ export const storeUser = (data: any) => {
 };
 
 export const userData = () => {
-  const stringifiedUser = localStorage.getItem("user") || "{}";
-  return JSON.parse(stringifiedUser);
+  const storedUser = window.localStorage.getItem(userIdentifier);
+
+  return storedUser ? JSON.parse(storedUser) : {};
 };

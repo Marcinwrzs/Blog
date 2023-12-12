@@ -5,6 +5,7 @@ import { getLatetsPosts } from "api/handlers/services";
 import { LatestPostsType } from "api/handlers/types";
 import { dotPulse } from "ldrs";
 import UserPanel from "pages/userPanel/UserPanel";
+import { userIdentifier } from "context/UserContext";
 
 const Latest: React.FC = () => {
   const [latestPosts, setLatestPosts] = useState<any>();
@@ -26,7 +27,7 @@ const Latest: React.FC = () => {
 
   return (
     <Styled.Wrapper>
-      {localStorage.getItem("user") && <UserPanel />}
+      {localStorage.getItem(userIdentifier) && <UserPanel />}
 
       <Styled.Title>
         <h1>Latest post</h1>

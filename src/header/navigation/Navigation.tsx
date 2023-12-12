@@ -3,8 +3,11 @@ import SignIn from "header/signIn/SignIn";
 import SignUp from "header/singUp/SignUp";
 import { Paths } from "components/pages/Pages";
 import Logout from "header/logout/Logout";
+import { useTokenContext } from "context/UserContext";
 
 const Navigation: React.FC = () => {
+  const { accessToken } = useTokenContext();
+
   return (
     <Styled.NavigationWrapper>
       <Styled.Category>
@@ -13,7 +16,7 @@ const Navigation: React.FC = () => {
         <Styled.Link to={Paths.Category + "category3"}>Category 3</Styled.Link>
       </Styled.Category>
 
-      {localStorage.getItem("user") ? (
+      {accessToken ? (
         <Logout />
       ) : (
         <>

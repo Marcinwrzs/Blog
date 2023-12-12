@@ -3,9 +3,10 @@ import { useForm } from "react-hook-form";
 import { emailRegex } from "common/emailRegex";
 import * as Styled from "./SignIn.styled";
 import { Paths } from "components/pages/Pages";
-import axios from "axios";
 import { storeUser } from "api/handlers/userData";
 import { useNavigate } from "react-router";
+import axios from "axios";
+import { userIdentifier, useTokenContext } from "context/UserContext";
 
 type SignInTypes = {
   email: string;
@@ -13,6 +14,8 @@ type SignInTypes = {
 };
 
 const SignIn: React.FC = () => {
+  const { onTokenSave, accessToken } = useTokenContext();
+
   const {
     register,
     handleSubmit,
@@ -30,13 +33,23 @@ const SignIn: React.FC = () => {
         identifier: data.email,
         password: data.password,
       });
+
       if (res.data.jwt) {
+        const {
+          jwt,
+          user: { username },
+        } = res.data;
+        onTokenSave({
+          newToken: jwt,
+          storeTokenInStorage: true,
+        });
         storeUser(res.data);
+        localStorage.setItem(userIdentifier, JSON.stringify({ jwt, username }));
         navigate(Paths.Home);
       }
     } catch (error) {
       setIsError(true);
-      new Error();
+      console.error(error);
     }
   };
 

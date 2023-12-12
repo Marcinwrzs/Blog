@@ -1,19 +1,30 @@
 import { Paths } from "components/pages/Pages";
-import { useEffect } from "react";
+import { userIdentifier, useTokenContext } from "context/UserContext";
 import { useNavigate } from "react-router";
+import * as Styled from "./Logout.styled";
 
 const Logout: React.FC = () => {
+  const { onTokenSave } = useTokenContext();
   const navigate = useNavigate();
 
+  const clearToken = (): void => {
+    onTokenSave({
+      newToken: "",
+      storeTokenInStorage: false,
+    });
+    localStorage.removeItem(userIdentifier);
+  };
+
   const logout = () => {
-    localStorage.removeItem("user");
+    clearToken();
+    localStorage.removeItem(userIdentifier);
     navigate(Paths.SignIn);
   };
 
   return (
-    <div>
-      <button onClick={logout}>Logout</button>
-    </div>
+    <>
+      <Styled.Button onClick={logout}>Logout</Styled.Button>
+    </>
   );
 };
 
