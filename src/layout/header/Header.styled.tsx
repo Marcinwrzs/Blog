@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
@@ -23,4 +24,46 @@ export const Header = styled.div`
   @media (max-width: 450px) {
     width: 90%;
   }
+`;
+
+export const Logo = styled(NavLink)`
+  color: black;
+
+  img {
+    height: 45px;
+    width: 50px;
+  }
+`;
+
+export const Navigation = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+
+  div {
+    margin: 0 8px;
+    cursor: pointer;
+  }
+`;
+
+export const Category = styled.div`
+  @media (max-width: 750px) {
+    display: none;
+  }
+`;
+
+export const Link = styled(NavLink)`
+  margin: 0 8px;
+  cursor: pointer;
+  color: black;
+`;
+
+export const SignUp = styled(NavLink)`
+  background-color: black;
+  color: white;
+  padding: 8px 8px;
+  width: 100px;
+  text-align: center;
+  border-radius: 5px;
 `;

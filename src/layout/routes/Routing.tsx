@@ -3,7 +3,7 @@ import Category from "components/Category/Category";
 import HomePage from "components/HomePage/HomePage";
 import SignUp from "components/SingUp/SignUp";
 import { Route, Routes } from "react-router-dom";
-import * as Styled from "./Pages.styled";
+import * as Styled from "./Routing.styled";
 import ErrorPage from "components/ErrorPage/ErrorPage";
 
 export enum Paths {

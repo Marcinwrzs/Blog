@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Article = styled.div`
   border-bottom: 1px solid black;
-  margin: 20px 10px;
+  margin: 10px 10px;
   padding: 15px 10px;
   display: flex;
   flex-direction: column;
