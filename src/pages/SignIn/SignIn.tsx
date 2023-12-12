@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { emailRegex } from "common/emailRegex";
 import * as Styled from "./SignIn.styled";
 import { Paths } from "components/pages/Pages";
+import { storeUser } from "api/handlers/userData";
+import { useNavigate } from "react-router";
+import axios from "axios";
+import { userIdentifier, useTokenContext } from "context/UserContext";
 
 type SignInTypes = {
   email: string;
@@ -10,14 +14,43 @@ type SignInTypes = {
 };
 
 const SignIn: React.FC = () => {
+  const { onTokenSave, accessToken } = useTokenContext();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<SignInTypes>();
 
-  const onSubmit = () => {
-    console.log("submitted");
+  const [isError, setIsError] = useState<boolean>(false);
+
+  const navigate = useNavigate();
+
+  const onSubmit = async (data: any) => {
+    const url = "http://localhost:1337/api/auth/local";
+    try {
+      const res = await axios.post(url, {
+        identifier: data.email,
+        password: data.password,
+      });
+
+      if (res.data.jwt) {
+        const {
+          jwt,
+          user: { username },
+        } = res.data;
+        onTokenSave({
+          newToken: jwt,
+          storeTokenInStorage: true,
+        });
+        storeUser(res.data);
+        localStorage.setItem(userIdentifier, JSON.stringify({ jwt, username }));
+        navigate(Paths.Home);
+      }
+    } catch (error) {
+      setIsError(true);
+      console.error(error);
+    }
   };
 
   return (
@@ -55,7 +88,7 @@ const SignIn: React.FC = () => {
         </Styled.Input>
         <Styled.Button type="submit">Login</Styled.Button>
       </form>
-
+      {isError && <h4>Something went wrong. Please try again</h4>}
       <div>
         <span>Don't have an account?</span>
         <Styled.Link to={Paths.SignUp}>Sign up</Styled.Link>
