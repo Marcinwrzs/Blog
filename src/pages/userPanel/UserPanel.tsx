@@ -2,7 +2,7 @@ import React from "react";
 import { userData } from "../../api/handlers/userData";
 import * as Styled from "./UserPanel.styled";
 
-const UserPanel: React.FC = () => {
+const UserPanel = () => {
   const { username } = userData();
 
   return (

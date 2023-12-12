@@ -1,6 +1,6 @@
 import * as Styled from "./Popular.styled";
 
-const Popular: React.FC = () => {
+const Popular = () => {
   return (
     <Styled.Wrapper>
       <h2>Most popular posts</h2>

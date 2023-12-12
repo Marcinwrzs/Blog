@@ -11,7 +11,7 @@ type SignUpTypes = {
   password: string;
 };
 
-const SignUp: React.FC = () => {
+const SignUp = () => {
   const {
     register,
     handleSubmit,

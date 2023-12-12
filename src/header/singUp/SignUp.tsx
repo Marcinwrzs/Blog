@@ -1,7 +1,7 @@
 import { Paths } from "components/pages/Pages";
 import * as Styled from "./SignUp.styled";
 
-const SignUp: React.FC = () => {
+const SignUp = () => {
   return (
     <Styled.Link to={Paths.SignUp}>
       <p>Get started</p>

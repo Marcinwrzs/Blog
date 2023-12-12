@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import Pages from "components/pages/Pages";
 import { TokenContextController } from "context/UserContext";
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <TokenContextController>
       <BrowserRouter>

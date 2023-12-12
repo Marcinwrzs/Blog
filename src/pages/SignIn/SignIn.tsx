@@ -13,8 +13,8 @@ type SignInTypes = {
   password: string;
 };
 
-const SignIn: React.FC = () => {
-  const { onTokenSave, accessToken } = useTokenContext();
+const SignIn = () => {
+  const { onTokenSave } = useTokenContext();
 
   const {
     register,

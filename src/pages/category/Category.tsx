@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router";
 
-const Category: React.FC = () => {
+const Category = () => {
   let params = useParams<string>();
 
   return (

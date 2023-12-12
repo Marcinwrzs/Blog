@@ -14,7 +14,7 @@ export enum Paths {
   ErrorPage = "*",
 }
 
-const Pages: React.FC = () => {
+const Pages = () => {
   return (
     <Styled.Wrapper>
       <Routes>

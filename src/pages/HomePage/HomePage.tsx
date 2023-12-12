@@ -3,7 +3,7 @@ import Latest from "pages/Latest/Latest";
 import Popular from "pages/Popular/Popular";
 import Commented from "pages/Commented/Commented";
 
-const HomePage: React.FC = () => {
+const HomePage = () => {
   return (
     <Styled.Wrapper>
       <Latest />

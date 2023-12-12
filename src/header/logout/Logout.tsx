@@ -3,7 +3,7 @@ import { userIdentifier, useTokenContext } from "context/UserContext";
 import { useNavigate } from "react-router";
 import * as Styled from "./Logout.styled";
 
-const Logout: React.FC = () => {
+const Logout = () => {
   const { onTokenSave } = useTokenContext();
   const navigate = useNavigate();
 

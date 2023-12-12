@@ -7,7 +7,7 @@ import { dotPulse } from "ldrs";
 import UserPanel from "pages/userPanel/UserPanel";
 import { userIdentifier } from "context/UserContext";
 
-const Latest: React.FC = () => {
+const Latest = () => {
   const [latestPosts, setLatestPosts] = useState<any>();
 
   dotPulse.register();

@@ -5,7 +5,7 @@ import { Paths } from "components/pages/Pages";
 import Logout from "header/logout/Logout";
 import { useTokenContext } from "context/UserContext";
 
-const Navigation: React.FC = () => {
+const Navigation = () => {
   const { accessToken } = useTokenContext();
 
   return (
