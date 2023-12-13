@@ -1,6 +1,7 @@
 import { userIdentifier } from "context/UserContext";
+import { UserData } from "./types";
 
-export const storeUser = (data: any) => {
+export const storeUser = (data: UserData) => {
   localStorage.setItem(
     userIdentifier,
     JSON.stringify({

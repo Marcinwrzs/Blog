@@ -1,12 +1,18 @@
-export interface ArticleType {
+export interface ArticlePayload {
   header: string;
   text: string;
   author: string;
   category: string;
   creationDate: string;
 }
+export interface UserData {
+  user: {
+    username: string;
+  };
+  jwt: string;
+}
 
-export interface LatestPostsType {
+export interface LatestPosts {
   id: number;
   attributes: {
     Header: string;
@@ -16,3 +22,5 @@ export interface LatestPostsType {
     createdAt: string;
   };
 }
+
+export type StrapiResponse<Data> = { data: Data };

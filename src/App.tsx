@@ -1,17 +1,14 @@
-import Header from "components/header/Header";
-import * as Styled from "./App.Styled";
+import Header from "layout/header/Header";
+import Routing from "layout/routes/Routing";
 import { BrowserRouter } from "react-router-dom";
-import Pages from "components/pages/Pages";
 import { TokenContextController } from "context/UserContext";
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <TokenContextController>
       <BrowserRouter>
-        <Styled.AppWrapper>
-          <Header />
-          <Pages />
-        </Styled.AppWrapper>
+        <Header />
+        <Routing />
       </BrowserRouter>
     </TokenContextController>
   );
