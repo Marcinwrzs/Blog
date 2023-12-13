@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import * as Styled from "./SignUp.Styled";
 import axios from "axios";
 import { useState } from "react";
+import { emailRegex } from "common/emailRegex";
 
 type SignUpPayload = {
   fullName: string;
@@ -60,7 +61,7 @@ const SignUp = () => {
             {...register("email", {
               required: "Email is required",
               pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                value: emailRegex,
                 message: "Invalid email address",
               },
             })}

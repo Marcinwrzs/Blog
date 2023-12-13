@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { emailRegex } from "common/emailRegex";
 import * as Styled from "./SignIn.styled";
