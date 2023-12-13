@@ -3,8 +3,8 @@ import Category from "components/Category/Category";
 import HomePage from "components/HomePage/HomePage";
 import SignUp from "components/SingUp/SignUp";
 import { Route, Routes } from "react-router-dom";
-import * as Styled from "./Routing.styled";
 import ErrorPage from "components/ErrorPage/ErrorPage";
+import Layout from "layout/layout/Layout";
 
 export enum Paths {
   Home = "/",
@@ -16,15 +16,15 @@ export enum Paths {
 
 const Routing = () => {
   return (
-    <Styled.Wrapper>
-      <Routes>
+    <Routes>
+      <Route element={<Layout />}>
         <Route path={Paths.Home} element={<HomePage />} />
         <Route path={Paths.SignUp} element={<SignUp />} />
         <Route path={Paths.SignIn} element={<SignIn />} />
         <Route path={Paths.Category + ":category"} element={<Category />} />
         <Route path={Paths.ErrorPage} element={<ErrorPage />} />
-      </Routes>
-    </Styled.Wrapper>
+      </Route>
+    </Routes>
   );
 };
 
