@@ -22,7 +22,7 @@ const SignUp = () => {
 
   const navigate = useNavigate();
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: SignUpPayload) => {
     const url = "http://localhost:1337/api/auth/local/register";
     try {
       const res = await axios.post(url, {

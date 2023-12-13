@@ -1,6 +1,7 @@
 import axiosInstance from "api/axios/axios";
-import { ArticleType } from "./types";
+import { LatestPosts, StrapiResponse } from "./types";
 
-export const getLatetsPosts = async (): Promise<ArticleType[]> => {
-  return (await axiosInstance.get("/articles")).data.data;
+export const getLatetsPosts = async (): Promise<LatestPosts[]> => {
+  const { data: { data } } = await axiosInstance.get<StrapiResponse<LatestPosts[]>>('/articles');
+  return data
 }

@@ -8,7 +8,7 @@ import UserPanel from "components/userPanel/UserPanel";
 import { userIdentifier } from "context/UserContext";
 
 const Latest = () => {
-  const [latestPosts, setLatestPosts] = useState<LatestPosts[]>();
+  const [latestPosts, setLatestPosts] = useState<LatestPosts[]>([]);
 
   dotPulse.register();
 
@@ -16,7 +16,7 @@ const Latest = () => {
     const fetchData = async () => {
       try {
         const response = await getLatetsPosts();
-        setLatestPosts(response as unknown as LatestPosts[]);
+        setLatestPosts(response);
       } catch (error) {
         console.error("Error fetching data:", error);
       }

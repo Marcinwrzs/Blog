@@ -1,6 +1,6 @@
 import Header from "layout/header/Header";
+import Routing from "layout/routes/Routing";
 import { BrowserRouter } from "react-router-dom";
-import Pages from "layout/routes/Routing";
 import { TokenContextController } from "context/UserContext";
 
 const App = () => {
@@ -8,7 +8,7 @@ const App = () => {
     <TokenContextController>
       <BrowserRouter>
         <Header />
-        <Pages />
+        <Routing />
       </BrowserRouter>
     </TokenContextController>
   );

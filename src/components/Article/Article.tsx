@@ -1,5 +1,5 @@
 import * as Styled from "./Article.Styled";
-import { ArticleType } from "api/handlers/types";
+import { ArticlePayload } from "api/handlers/types";
 
 const Article = ({
   header,
@@ -7,7 +7,7 @@ const Article = ({
   author,
   category,
   creationDate,
-}: ArticleType) => {
+}: ArticlePayload) => {
   const date = new Date(creationDate);
 
   const fullDate =

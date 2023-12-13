@@ -26,7 +26,7 @@ const SignIn = () => {
 
   const navigate = useNavigate();
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: SignInPayload) => {
     const url = "http://localhost:1337/api/auth/local";
     try {
       const res = await axios.post(url, {
